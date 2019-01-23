@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
 
-import { Button, Text, Image,TextInput, View, StyleSheet, TouchableOpacity, Alert } from 'react-native';
+import { Button, Text,Image, TextInput, View, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 //import Camera from 'react-native-camera';
 
-class Cam extends Component {
+class MsgList extends Component {
 
-    constructor(props){
-        super(props);
-      
-      }
     static navigationOptions = {
-        drawerLabel: 'Camera',
+        drawerLabel: 'MsgList',
         drawerIcon: ({ tintColor }) => (
           <Image
             source={require('../../imgs/delete.png')}
@@ -20,6 +16,7 @@ class Cam extends Component {
       };
     
 
+      
     takePhoto() {
         Alert.alert(
             'Alert Title',
@@ -46,14 +43,13 @@ class Cam extends Component {
     
 
     render() {
-        
+       
         return (
-            
-            <View >
-                <Button title="Take Photo" onPress={() => this.takePhoto()}></Button>
+            <View style={styles.container}>
+                <Button title="List MSG " onPress={() => this.takePhoto()}></Button>
                 <Button
-        onPress={() => this.props.navigation.toggleDrawer()}
-        title="Go to notificationsndd"
+        onPress={() => this.props.navigation.navigate('DrawerOpen')}
+        title="Go to notifications"
       />
 
                 {/* <Camera
@@ -89,4 +85,4 @@ const styles = StyleSheet.create({
     }
   });
 
-export default Cam;
+export default MsgList;
