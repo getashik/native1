@@ -1,15 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
-
 import RootStack  from './pages/menu/router'
 import { createStore, applyMiddleware } from 'redux';
 import { Provider, connect } from 'react-redux';
 import NativeStore from './reducer/index';
 import thunk from 'redux-thunk';
-import { createStackNavigator, createAppContainer ,createDrawerNavigator} from "react-navigation";
-
-
-
 
 const store = createStore(NativeStore, applyMiddleware(thunk));
 GLOBAL.XMLHttpRequest = GLOBAL.originalXMLHttpRequest || GLOBAL.XMLHttpRequest;

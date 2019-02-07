@@ -1,9 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Button, ListView, ActivityIndicator } from 'react-native';
 import { connect } from 'react-redux';
-import { GetList } from '../actions/awsList';
+import { GetList } from '../../actions/awsList';
 import UserEntry from './userEntry';
-import Row from './userRow'
+import Row from './userRow';
+import DrawList from '../hocs/hocList';
 
 
 
@@ -84,7 +85,6 @@ const styles = StyleSheet.create({
 		borderColor: "#000"
 	}
 });
-
 function select(state) {
 	return { awsReducer: state };
 }

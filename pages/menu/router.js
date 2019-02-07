@@ -1,12 +1,13 @@
-import { createStackNavigator ,createDrawerNavigator,createAppContainer} from 'react-navigation'
+import { DrawerNavigator, DrawerItems,createStackNavigator ,createDrawerNavigator,createAppContainer} from 'react-navigation'
 import MenuContainer from './menu'
-import Camera from '../camera/cam';
+import Home from '../home/home';
 import MsgList from '../message/listMsg';
+import Camera from '../camera/cam';
 
 const EntryStack = createStackNavigator(
   {
     UserList: {
-      screen: Camera,
+      screen: Home,
     },
   },
   {
@@ -16,31 +17,28 @@ const EntryStack = createStackNavigator(
 
  const RootStack1 = createStackNavigator({
     Home: {
-      screen: Camera
+      screen: Home
     },
     Signup: {
       screen: MsgList
     }
   });
-// export const RootStack = createStackNavigator(
-//   {
-//     EntryStack: { screen: EntryStack },
-//     MenuStack: { screen: MenuContainer },
-//   },
-//   {
-//     headerMode: 'none',
-//     initialRouteName: 'MenuStack',
-//   }
-// )
 
 const RootStack = createDrawerNavigator({
-    Home: {
-      screen: Camera,
-    },
+  
+    
     MsgList: {
       screen: MsgList,
     },
+    Camera:{
+      screen:Camera
+    },
+    Home: {
+      screen: Home,
+    }
+    
   });
+
 
   
   export default createAppContainer(RootStack);

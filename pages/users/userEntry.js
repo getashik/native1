@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { Button, Text, TextInput, View, StyleSheet, TouchableOpacity } from 'react-native';
-import { PushUser } from '../actions/awsList';
+import { PushUser } from '../../actions/awsList';
 import { connect } from 'react-redux';
 import { red } from 'ansi-colors';
 
@@ -57,7 +57,7 @@ class UserEntry extends Component {
         <Text> Add....</Text>
         </TouchableOpacity> */}
 <TouchableOpacity onPress={() => this.postUser()}>
-<Text >Add...</Text>
+<Text >Add.........</Text>
                 {/* <Button title="Add.." disabled={this.state.isSubmit}  ></Button> */}
                 </TouchableOpacity>
             </View>

@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
 
-import { TouchableHighlight, Button, Text, Image, TextInput, View, StyleSheet, TouchableOpacity, Alert } from 'react-native';
-//import Camera from 'react-native-camera';
+import { Button, Text, Image, TextInput, View, StyleSheet, TouchableHighlight, Alert } from 'react-native';
 import Menu from '../menu/menu';
-class MsgList extends Component {
+import UserList from '../users/userList';
+//import Camera from 'react-native-camera';
+
+class Home extends Component {
+
+    constructor(props) {
+        super(props);
+
+    }
+
+    
 
     static navigationOptions = {
-        drawerLabel: 'MsgList',
+        drawerLabel: 'Home',
         drawerIcon: ({ tintColor }) => (
             <Image
                 source={require('../../imgs/delete.png')}
@@ -14,7 +23,6 @@ class MsgList extends Component {
             />
         ),
     };
-
 
 
     takePhoto() {
@@ -45,44 +53,29 @@ class MsgList extends Component {
     render() {
 
         return (
-            <View >
 
+            <View style={[styles.container]}>
 
-
-                
-
-                <View style={[styles.page]}>
-
-                    <Button title="List MSG " onPress={() => this.takePhoto()}></Button>
-                    <Button
-                        onPress={() => this.props.navigation.navigate('DrawerOpen')}
-                        title="List MSGList MSGList MSGList MSG"
-                    />
-                    <Button
-                        onPress={() => this.props.navigation.navigate('DrawerOpen')}
-                        title="List MSGList MSGList MSGList MSG"
-                    />
-                    <Button
-                        onPress={() => this.props.navigation.navigate('DrawerOpen')}
-                        title="List MSGList MSGList MSGList MSG"
-                    />
-                    <Button
-                        onPress={() => this.props.navigation.navigate('DrawerOpen')}
-                        title="List MSGList MSGList MSGList MSG"
-                    />
-
-                </View>
 
                 <Menu {...this.props}/>
-
-                {/* <View style={[styles.menu]}>
+                {/* <View style={[styles.v1]}>
                     <TouchableHighlight onPress={() => this.props.navigation.toggleDrawer()} >
                         <Image source={require('../../imgs/menu.png')}
-                            style={[styles.icon]} />
+                            style={[styles.icon]}  />
                     </TouchableHighlight>
                 </View> */}
-               
-               
+
+                <View style={[styles.v2]}>
+                    <Button title="Take Photo" onPress={() => this.takePhoto()}></Button>
+                    <Button style={[styles.body]}
+ onPress={() => this.takePhoto()}
+                        title="Go to notificationsndd"
+                    />
+                </View>
+
+                <View>
+                    <UserList />
+                </View>
                 {/* <Camera
                     ref={(cam) => {
                         this.camera = cam;
@@ -95,24 +88,45 @@ class MsgList extends Component {
         );
     }
 }
+
 const styles = StyleSheet.create({
- 
+    container: {
+        flex: 1,
+        position: 'relative',
+        zIndex: 0,
+        paddingTop:20
+    },
+    preview: {
+        flex: 1,
+        justifyContent: 'flex-end',
+        alignItems: 'center'
+    },
+    capture: {
+        flex: 0,
+        backgroundColor: '#fff',
+        borderRadius: 5,
+        color: '#000',
+        padding: 10,
+        margin: 40
+    },
     icon: {
         width: 24,
         height: 24,
-  
-  
+
+
     },
-    page: {
+    body: {
         zIndex: 0
     },
-    menu: {
+    v1: {
         zIndex: 1,
         position: 'absolute',
         top: 50,
         left: 20
+    },
+    v2: {
+        zIndex: 0
     }
-    
-  });
+});
 
-export default MsgList;
+export default Home;

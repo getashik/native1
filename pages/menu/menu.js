@@ -1,58 +1,46 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
-import {createDrawerNavigator, DrawerActions} from 'react-navigation';
-import {Icon, Header} from 'react-native-elements';
-
-
-import Cam from '../camera/cam';
-
-
-const Menu = createDrawerNavigator(
-    {
-     
-      "Cam": { screen: Cam }
-    },
-    {
-      drawerWidth: 300,
-      drawerPosition: 'left',
-      initialRouteName: 'Cam',
-    }
-  )
+import { StyleSheet, TouchableHighlight, View, Image } from 'react-native';
+import { createDrawerNavigator, DrawerActions } from 'react-navigation';
+import { Icon, Header } from 'react-native-elements';
 
 
 
-  const MenuContainer = () => {
-    let pressMenu
-    
-    return(
-      <React.Fragment>
-        <Header
-          backgroundColor="white"
-          leftComponent={
-            <Icon
-              name="menu"
-              onPress={() => {
-                pressMenu.dispatch(DrawerActions.toggleDrawer())
-                  }}
-             />
-          }
-        />
-        <Menu
-           ref={navigatorRef => { pressMenu = navigatorRef}}
-        />
-      </React.Fragment>
-    )
+
+const styles = StyleSheet.create({
+ 
+  icon: {
+      width: 24,
+      height: 24,
+
+
+  },
+ 
+  menu: {
+      zIndex: 1,
+      position: 'absolute',
+      top: 40,
+      left: 10,
+      backgroundColor:'#fff',
+      padding:5,
+      borderRadius:20
   }
-  export default MenuContainer
+  
+});
 
 
 
-//   export default class Det extends React.Component {
-//     render() {
-//       return (
-//         <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-//           <Text>Details Screen1111111</Text>
-//         </View>
-//       );
-//     }
-//   };
+export default (nav)=>{
+
+  //console.log(a);
+
+  
+    return (
+      <View style={[styles.menu]}>
+        <TouchableHighlight onPress={() => nav.navigation.toggleDrawer()} >
+          <Image source={require('../../imgs/menu.png')}
+            style={[styles.icon]} />
+        </TouchableHighlight>
+      </View>
+    );
+  
+};

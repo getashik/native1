@@ -1,9 +1,9 @@
 //import Config from 'react-native-config'
 //const APIURL="http://10.1.1.47:3030";
-const APIURL="http://ec2-18-191-99-102.us-east-2.compute.amazonaws.com:3030";
+const APIURL="http://ec2-18-219-114-208.us-east-2.compute.amazonaws.com:3030";
+
 
 export const GetList = function () {
-
     return function(dispatch){
     fetch(`${APIURL}/get`)
       .then(res => res.json())

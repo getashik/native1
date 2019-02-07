@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Button, ListView, Image } from 'react-native';
-import {DeleteUser} from "../actions/awsList";
+import {DeleteUser} from "../../actions/awsList";
 import {connect} from 'react-redux';
 
  class Row extends React.Component {
@@ -19,7 +19,7 @@ import {connect} from 'react-redux';
 					<Text style={styles.txt} >{this.props.userName}-----{this.props.email}</Text>
 
                     <TouchableOpacity  onPress={() => this.deleteItem()} >
-                    <Image source={require('../imgs/delete.png')}  style={styles.img} ></Image>
+                    <Image source={require('../../imgs/delete.png')}  style={styles.img} ></Image>
                     </TouchableOpacity>
 				</TouchableOpacity>
 		
